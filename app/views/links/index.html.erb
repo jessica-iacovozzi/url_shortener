@@ -1,0 +1,10 @@
+<h1>Links</h1>
+
+<%= form_with model: Link.new do |form| %>
+  <div class="flex gap-2 items-center">
+    <%= form.url_field :url, required: true, placeholder: "https://yoururl.com", class: "rounded flex-grow" %>
+    <%= form.button "Save", class: "px-3 py-2 rounded bg-gray-200" %>
+  </div>
+<% end %>
+
+<%= render @links %>
