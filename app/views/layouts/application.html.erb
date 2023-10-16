@@ -13,11 +13,33 @@
   </head>
 
   <body>
+    <div class="flex items-center justify-between mb-10 py-5 bg-gray-100">
+      <h1 class="m-0 ps-20 text-xl font-bold flex items-center gap-2">
+        ShortURL
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
+        </svg>
+      </h1>
+
+      <div class="flex items-center gap-6 text-lg me-20">
+        <% if user_signed_in? %>
+          <%= link_to "Profile", edit_user_registration_path, class: "hover:font-semibold" %>
+          <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "hover:font-semibold" %>
+        <% else %>
+          <%= link_to "Sign Up", new_user_registration_path, class: "hover:font-semibold" %>
+          <%= link_to "Login", new_user_session_path, class: "hover:font-semibold" %>
+        <% end %>
+      </div>
+    </div>
+
     <main class="prose mx-auto mt-28 px-5">
       <%= tag.p alert, class: "px-4 py-2 bg-red-100 text-red-800 rounded" if alert %>
       <%= tag.p notice, class: "px-4 py-2 bg-yellow-100 text-yellow-800 rounded" if notice %>
 
       <%= yield %>
+
     </main>
+
+    <%= tag.footer "©ShortURL 2023 - Made with by Jessica Iacovozzi", class: "mt-20 py-5 bg-gray-100 text-center text-sm text-gray-600" %>
   </body>
 </html>

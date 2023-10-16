@@ -9,3 +9,6 @@ Style/StringLiterals:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Layout/TrailingWhitespace:
+  Enabled: false
