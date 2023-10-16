@@ -1,3 +1,20 @@
-<h1><%= @link.url %></h1>
+<div class="flex justify-between items-center text-xs">
+  <%= link_to "Back to all links", root_path, class: "px-4 py-2 bg-gray-100 hover:bg-gray-200 transition duration-200 rounded no-underline" %>
+  <div class="flex items-center gap-4">
+    <%= tag.div pluralize(@link.views_count, "View") %>
+    <%= link_to "Edit", edit_link_path(@link), class: "px-2 py-1.5 rounded bg-gray-100 no-underline" %>
+  </div>
+</div>
 
+<h1 class="mt-10 mb-5"><%= @link.title %></h1>
+<%= tag.div @link.description %>
+
+<div class="flex justify-between items-center my-10">
+  <%= link_to view_path(@link), target: :_blank, data: { turbo: false }, class: "px-2 py-1.5 rounded bg-gray-100 no-underline text-xs" do %>
+    <%= favicon_tag @link.domain, class: "inline-block m-0" %>
+    <%= view_url(@link) %>
+  <% end %>
+
+  <%= button_tag "Copy link", class: "text-xs px-2 py-1.5 rounded bg-gray-100 no-underline", data: { controller: "clipboard", clipboard_text: view_url(@link)} %>
+</div>
 <%= line_chart @link.views.group_by_day(:created_at, range: 2.weeks.ago..Time.now, expand_range: true).count %>

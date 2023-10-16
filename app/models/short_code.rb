@@ -1,16 +1,17 @@
 class ShortCode
-  ALPLHABET="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".freeze
-  BASE=ALPLHABET.length
+  ALPLHABET = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".freeze
+  BASE = ALPLHABET.length
 
   def self.encode(number)
     return ALPLHABET.first if number.zero? || number.nil?
+
     result = ""
 
-    while number > 0 do
+    while number.positive?
       index = number % BASE
       char = ALPLHABET[index]
       result.prepend char
-      number = number / BASE
+      number /= BASE
     end
 
     result
