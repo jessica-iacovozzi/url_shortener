@@ -12,14 +12,14 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="min-h-screen">
     <div class="flex items-center justify-between mb-10 py-5 bg-gray-100">
-      <h1 class="m-0 ps-20 text-xl font-bold flex items-center gap-2">
-        ShortURL
+      <%= link_to root_path, class: "m-0 ps-20 text-xl font-bold flex items-center gap-2" do %>
+        <h1>ShortURL</h1>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
         </svg>
-      </h1>
+      <% end %>
 
       <div class="flex items-center gap-6 text-lg me-20">
         <% if user_signed_in? %>

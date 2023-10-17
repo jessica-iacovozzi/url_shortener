@@ -14,11 +14,12 @@
       <div class="flex flex-col">
         <%= tag.div link.title || link.url, class: "text-lg font-bold mt-2" %>
         <%= tag.div link.description, class: "text-sm text-gray-800" %>
+        <%= image_tag link.image, class: "my-3" if link.image %>
       </div>
     </div>
 
     <div class="text-center text-sm col-span-2">
-      <%= link_to "Details", link, class: "px-2 py-1.5 rounded bg-gray-100 hover:bg-gray-200 transition duration-200 no-underline" %>
+      <%= link_to "Check views", link, class: "px-2 py-1.5 rounded bg-gray-100 hover:bg-gray-200 transition duration-200 no-underline" %>
     </div>
 
     <div class="text-center text-sm col-span-2">

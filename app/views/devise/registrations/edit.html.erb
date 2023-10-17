@@ -1,0 +1,38 @@
+<h1 class="flex items-center justify-center gap-3 text-2xl py-5">
+  Edit your profile
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6L9 12.75l4.286-4.286a11.948 11.948 0 014.306 6.43l.776 2.898m0 0l3.182-5.511m-3.182 5.51l-5.511-3.181" />
+  </svg>
+</h1>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field flex justify-center">
+    <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "rounded w-3/5 mt-5" %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field flex justify-center">
+    <%= f.password_field :password, placeholder: "New password", class: "rounded w-3/5 mt-5" %>
+  </div>
+
+  <div class="field flex justify-center">
+    <%= f.password_field :password_confirmation, placeholder: "New password confirmation", class: "rounded w-3/5 mt-5" %>
+  </div>
+
+  <div class="field flex justify-center">
+    <%= f.password_field :current_password, placeholder: "Current password", class: "rounded w-3/5 mt-5" %>
+  </div>
+
+  <div class="actions flex justify-center">
+    <%= f.submit "Update", class: "mt-4 px-4 hover:cursor-pointer py-1.5 rounded bg-gray-100 hover:bg-gray-200 transition duration-200 no-underline" %>
+  </div>
+<% end %>
+
+<div class="flex justify-center">
+  <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "my-4 px-4 hover:cursor-pointer py-1.5 rounded bg-red-100 hover:bg-red-200 transition duration-200 no-underline" %>
+</div>
