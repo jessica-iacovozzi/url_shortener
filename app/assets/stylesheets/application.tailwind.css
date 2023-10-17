@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "~tailwindcss/base";
 
 .pagy-nav.pagination {
   @apply isolate inline-flex -space-x-px rounded-md shadow-sm;
