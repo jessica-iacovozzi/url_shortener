@@ -9,6 +9,12 @@ class LinksController < ApplicationController
     redirect_to root_path
   end
 
+  def my_links
+    @pagy, @links = pagy Link.where(user_id: current_user)
+  rescue Pagy::OverflowError
+    redirect_to my_links_path
+  end
+
   def show
   end
 

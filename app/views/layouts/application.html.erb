@@ -23,6 +23,7 @@
 
       <div class="flex items-center gap-6 text-lg me-20">
         <% if user_signed_in? %>
+          <%= link_to "My links", my_links_path, class: "hover:font-semibold" %>
           <%= link_to "Profile", edit_user_registration_path, class: "hover:font-semibold" %>
           <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "hover:font-semibold" %>
         <% else %>
