@@ -1,15 +1,24 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+guest:
+  url: https://rocky-headland-52098-e854db2d9828.herokuapp.com/
+  title: RMR Association
+  description: Serving underpriviledged families since 2009.
+  image:
+  views_count: 0
+
 one:
-  url: MyString
-  title: MyString
-  description: MyString
-  image: MyString
+  user: one
+  url: https://charity-finder.ca/
+  title: Charity Finder
+  description: Helping Canadians find charities they can trust.
+  image:
   views_count: 1
 
 two:
-  url: MyString
-  title: MyString
-  description: MyString
-  image: MyString
+  user: two
+  url: https://jessicaiacovozzi.vercel.app/
+  title: Jessica Iacovozzi's Portfolio
+  description: Take a look at my work as a full-stack Ruby on Rails developer.
+  image:
   views_count: 1

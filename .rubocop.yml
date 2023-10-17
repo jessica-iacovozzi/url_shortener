@@ -12,3 +12,6 @@ Style/FrozenStringLiteralComment:
 
 Layout/TrailingWhitespace:
   Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false

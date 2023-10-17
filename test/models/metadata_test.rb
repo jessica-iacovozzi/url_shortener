@@ -10,7 +10,7 @@ class MetadataTest < ActiveSupport::TestCase
   end
 
   test "meta description" do
-    assert_equal "Hello", Metadata.new("<meta name='description' content='Hello'></meta>").description
+    assert_equal "Hello", Metadata.new("<meta property='og:description' content='Hello'></meta>").description
   end
 
   test "missing meta description" do
