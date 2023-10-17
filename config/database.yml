@@ -15,4 +15,5 @@ production:
   <<: *default
   database: shorturl_db
   username: shorturl_db_user
+  url: <%= ENV["SHORTURL_DB_URL"] %>
   password: <%= ENV["SHORTURL_DB_PASSWORD"] %>
