@@ -9,7 +9,7 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field flex justify-center">
-    <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "rounded w-3/5 mt-5" %>
+    <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "rounded lg:w-3/5 mt-5" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -17,15 +17,15 @@
   <% end %>
 
   <div class="field flex justify-center">
-    <%= f.password_field :password, placeholder: "New password", class: "rounded w-3/5 mt-5" %>
+    <%= f.password_field :password, placeholder: "New password", class: "rounded lg:w-3/5 mt-5" %>
   </div>
 
   <div class="field flex justify-center">
-    <%= f.password_field :password_confirmation, placeholder: "New password confirmation", class: "rounded w-3/5 mt-5" %>
+    <%= f.password_field :password_confirmation, placeholder: "New password confirmation", class: "rounded lg:w-3/5 mt-5" %>
   </div>
 
   <div class="field flex justify-center">
-    <%= f.password_field :current_password, placeholder: "Current password", class: "rounded w-3/5 mt-5" %>
+    <%= f.password_field :current_password, placeholder: "Current password", class: "rounded lg:w-3/5 mt-5" %>
   </div>
 
   <div class="actions flex justify-center">

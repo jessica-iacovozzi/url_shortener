@@ -14,16 +14,16 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="min-h-screen">
+  <body class="flex flex-col min-h-screen">
     <div class="flex items-center justify-between mb-10 py-5 bg-gray-100">
-      <%= link_to root_path, class: "m-0 ps-20 text-xl font-bold flex items-center gap-2" do %>
+      <%= link_to root_path, class: "m-0 ps-8 lg:ps-20 text-xl font-bold flex items-center gap-2" do %>
         <h1>ShortURL</h1>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 hidden lg:block">
           <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
         </svg>
       <% end %>
 
-      <div class="flex items-center gap-6 text-lg me-20">
+      <div class="flex items-center gap-3 lg:gap-6 text-lg me-8 lg:me-20">
         <% if user_signed_in? %>
           <%= link_to "My links", my_links_path, class: "hover:font-semibold" %>
           <%= link_to "Profile", edit_user_registration_path, class: "hover:font-semibold" %>
@@ -35,7 +35,7 @@
       </div>
     </div>
 
-    <main class="prose mx-auto mt-28 px-5">
+    <main class="prose mx-auto mt-12 lg:mt-28 grow px-5 min-w-1/2">
       <%= tag.p alert, class: "px-4 py-2 bg-red-100 text-red-800 rounded" if alert %>
       <%= tag.p notice, class: "px-4 py-2 bg-yellow-100 text-yellow-800 rounded" if notice %>
 
@@ -43,6 +43,6 @@
 
     </main>
 
-    <%= tag.footer "©ShortURL 2023 - Made with ♡ by Jessica Iacovozzi", class: "mt-20 py-5 bg-gray-100 text-center text-sm text-gray-600" %>
+    <%= tag.footer "©ShortURL 2023 - Made with ♡ by Jessica Iacovozzi", class: "mt-10 py-5 bg-gray-100 text-center text-sm text-gray-600 f" %>
   </body>
 </html>

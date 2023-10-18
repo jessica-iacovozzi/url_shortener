@@ -1,8 +1,8 @@
-<%= tag.div id: dom_id(link) do %>
+<%= tag.div id: dom_id(link), class: "divide-y-2 divide-gray-100" do %>
   <%= turbo_stream_from link %>
 
-  <div class="grid grid-cols-9 items-center py-4">
-    <div class="col-span-5">
+  <div class="grid lg:grid-cols-9 items-center py-4">
+    <div class="lg:col-span-5">
       <%= link_to view_path(link), target: :_blank, data: { turbo: false }, class: "no-underline text-xs flex items-center gap-1 hover:underline" do %>
         <%= favicon_tag link.domain, class: "inline-block m-0" %>
         <%= view_url(link) %>
@@ -18,12 +18,14 @@
       </div>
     </div>
 
-    <div class="text-center text-sm col-span-2">
-      <%= link_to "Check views", link, class: "px-2 py-1.5 rounded bg-gray-100 hover:bg-gray-200 transition duration-200 no-underline" %>
-    </div>
+    <div class="flex justify-between lg:justify-evenly items-center lg:col-span-4 mt-2">
+      <div class="text-center text-sm">
+        <%= link_to "Check views", link, class: "px-2 py-1.5 rounded bg-gray-100 hover:bg-gray-200 transition duration-200 no-underline" %>
+      </div>
 
-    <div class="text-center text-sm col-span-2">
-      <%= button_tag "Copy link", class: "px-2 py-1.5 rounded bg-gray-100 hover:bg-gray-200 transition duration-200 no-underline", data: { controller: "clipboard", clipboard_text: view_url(link)} %>
+      <div class="text-center text-sm">
+        <%= button_tag "Copy link", class: "px-2 py-1.5 rounded bg-gray-100 hover:bg-gray-200 transition duration-200 no-underline", data: { controller: "clipboard", clipboard_text: view_url(link)} %>
+      </div>
     </div>
   </div>
 <% end %>
