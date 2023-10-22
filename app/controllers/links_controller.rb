@@ -10,7 +10,7 @@ class LinksController < ApplicationController
   end
 
   def my_links
-    @pagy, @links = pagy Link.where(user_id: current_user)
+    @pagy, @links = pagy Link.where(user_id: current_user).recent_first
   rescue Pagy::OverflowError
     redirect_to my_links_path
   end
@@ -36,7 +36,7 @@ class LinksController < ApplicationController
 
   def update
     if @link.update(link_params)
-      redirect_to @link, notice: "Successfully updated link!"
+      redirect_to link_path(@link), notice: "Successfully updated link!"
     else
       render :edit, status: :unprocessable_entity
     end
@@ -56,6 +56,6 @@ class LinksController < ApplicationController
   def check_if_editable
     return if @link.editable_by?(current_user)
 
-    redirect_to @link, alert: "You aren't allowed to edit this link."
+    redirect_to link_path(@link), alert: "You aren't allowed to edit this link."
   end
 end
