@@ -4,12 +4,12 @@ class Metadata
   attr_reader :doc
 
   def self.retrieve_from(url)
-    new(URI.open(url))
+    new(URI.parse(url).open)
   rescue
     new
   end
 
-  def initialize(html=nil)
+  def initialize(html = nil)
     @doc = Nokogiri::HTML(html)
   end
 
